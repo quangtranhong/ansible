@@ -1,0 +1,23 @@
+---
+# *     *     *   *    *        command to be executed
+# -     -     -   -    -
+# |     |     |   |    |
+# |     |     |   |    +----- day of week (0 - 6) (Sunday=0)
+# |     |     |   +------- month (1 - 12)
+# |     |     +--------- day of        month (1 - 31)
+# |     +----------- hour (0 - 23)
+# +------------- min (0 - 59)
+
+    - name : add crontab entry
+      cron :
+        name   : '{{ name }}'
+        minute : '{{ minute }}'
+        hour   : '{{ hour }}'
+        day    : '{{ day }}'
+        month  : '{{ month }}'
+        weekday: '{{ weekday }}'
+        user   : '{{ user }}'
+        job    : '{{ job }}'
+        state  : present
+        #state : absent
+#yamla ansible #

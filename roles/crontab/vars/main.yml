@@ -1,0 +1,20 @@
+---
+minute: '0'
+hour: '0'
+day: '*'
+month: '*'
+weekday: '2,5'
+user: root
+
+#name   : vincere application server
+#job    : cat /dev/null > /opt/logs/application.log
+
+name: vincere application server
+job: find / -name *json.log -size +10M -exec cp /dev/null {} \;
+
+#job    : find /apps/aqayo/tomcat7instance1/logs/* -mtime +30 -type f | xargs rm -v >> /var/log/remove_old_logs.log
+
+#30 20 * * * for f in $(find /srv/admin/catalina/logs/*.log -size +1M -mtime 0 -type f ) ; do tar -cvzf "${f}.tar.gz" "$f" || true ; rm -v "$f" ; done >> /var/log/remove_old_tenant_files.log
+#Ansible: postjob
+#*/30 * * * * /bin/bash /etc/collectd/collectd.conf.d/postjob.sh >> /var/log/postjob.log 2>&1
+
