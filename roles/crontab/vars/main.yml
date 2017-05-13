@@ -1,16 +1,26 @@
 ---
+# *    *    *    *    *    command to be executed
+# -    -    -    -    -
+# |    |    |    |    |
+# |    |    |    |    +----- day of week (0 - 6) (Sunday=0)
+# |    |    |    +------- month (1 - 12)
+#      |    +--------- day of month (1 - 31)
+# |    +----------- hour (0 - 23)
+# +------------- min (0 - 59)
+
 minute: '0'
-hour: '0'
+hour: '3'
 day: '*'
 month: '*'
-weekday: '2,5'
+weekday: '*'
 user: root
 
 #name   : vincere application server
 #job    : cat /dev/null > /opt/logs/application.log
 
-name: vincere application server
-job: find / -name *json.log -size +10M -exec cp /dev/null {} \;
+name: 'ntp update'
+job: 'ntpdate 10.220.80.10'
+
 
 #job    : find /apps/aqayo/tomcat7instance1/logs/* -mtime +30 -type f | xargs rm -v >> /var/log/remove_old_logs.log
 
